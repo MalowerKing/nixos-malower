@@ -9,7 +9,7 @@
       scrollback_lines = 10000;
       enable_audio_bell = false;
       mouse_hide_wait = 60;
-      background_opacity = 0.5;
+      background_opacity = 0.2;
       background_blur = 1;
     };
     extraConfig = ''
