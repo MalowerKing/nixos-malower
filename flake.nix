@@ -16,6 +16,15 @@
       url = "github:kamadorueda/alejandra/3.1.0";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    hyprland.url = "github:hyprwm/Hyprland";
+
+    hyprlock.url = "github:hyprwm/hyprlock";
+
+    stylix = {
+      url = "github:danth/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -25,6 +34,7 @@
     home-manager,
     nvf,
     alejandra,
+    stylix,
     ...
   } @ inputs: let
     system = "x86_64-linux";
@@ -54,6 +64,7 @@
         {
           environment.systemPackages = [alejandra.defaultPackage.${system}];
         }
+        stylix.nixosModules.stylix
       ];
     };
 

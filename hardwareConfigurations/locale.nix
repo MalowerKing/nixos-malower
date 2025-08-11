@@ -1,5 +1,5 @@
 {
- # Set your time zone.
+  # Set your time zone.
   time.timeZone = "Europe/Warsaw";
 
   # Select internationalisation properties.

@@ -1,6 +1,6 @@
 {
-programs.steam = {
-  enable = true;
-  remotePlay.openFirewall = true;
-};
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true;
+  };
 }

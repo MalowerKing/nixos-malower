@@ -1,3 +1,3 @@
 {
-console.keyMap = "pl2";
+  console.keyMap = "pl2";
 }

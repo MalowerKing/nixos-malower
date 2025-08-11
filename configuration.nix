@@ -17,6 +17,8 @@
       ../../hardwareConfiguration/sound.nix
       ../../hardwareConfiguration/wm-Plasma.nix
       ../../hardwareConfiguration/fonts.nix
+        ../../hardwareConfiguration/bluetooth.nix
+        :
     ];
 
     networking.hostName = "malower"; # Define your hostname.
