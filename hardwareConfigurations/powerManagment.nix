@@ -1,4 +1,4 @@
 {
-powerManagment.powertop.enable = true;
+powerManagement.powertop.enable = true;
 
 }

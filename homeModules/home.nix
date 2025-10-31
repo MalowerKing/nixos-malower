@@ -2,15 +2,12 @@
   imports = [
     ./modules/bundlePrograms.nix
     ./modules/kitty.nix
-    ./modules/starship.nix
+    ./modules/starship/starship.nix
     ./modules/git.nix
     ./modules/fish.nix
-    ./modules/plasmaBundle.nix
-    ./modules/hyprland.nix
-    ./modules/waybar.nix
-    ./modules/dunst.nix
-    ./modules/hyprpaper.nix
-    ./modules/hypridle.nix
+    ./modules/hyprland/hyprland.nix
+    ./modules/waybar/waybar.nix
+    ./modules/dunst/dunst.nix
     ./modules/rofi.nix
   ];
 

@@ -1,129 +1,207 @@
 {
-  "layer": "top",
-  "position": "top",
-  "autohide": true,
-  "autohide-blocked": false,
-  "exclusive": true,
-  "passthrough": false,
-  "gtk-layer-shell": true,
-  /* === Modules Order === */
-  "modules-left": [
-    "custom/archicon",
-    "clock",
-    "cpu",
-    "memory",
-    "disk",
-    "temperature"
-  ],
-  "modules-center": [
-    "hyprland/workspaces"
-  ],
-  "modules-right": [
-    "wlr/taskbar",
-    "idle_inhibitor",
-    "pulseaudio_slider",
-    "pulseaudio",
-    "network",
-    "hyprland/language"
-  ],
-  /* === Modules Left === */
-  "custom/archicon": {
-    "format": "",
-    "on-click": "wofi --show drun",
-    "tooltip": false
-  },
-  "clock": {
-    "timezone": "America/Mexico_City",
-    "format": "{:%I:%M  %d, %m}",
-    "tooltip-format": "{calendar}",
-    "calendar": {
-      "mode": "month"
-    }
-  },
-  "cpu": {
-    "format": "{usage}% ",
-    "tooltip": true,
-    "tooltip-format": "Uso de CPU: {usage}%\nNúcleos: {cores}"
-  },
-  "memory": {
-    "format": "{}% 󰍛",
-    "tooltip": true,
-    "tooltip-format": "RAM en uso: {used} / {total} ({percentage}%)"
-  },
-  "disk": {
-    "format": "{percentage_free}% ",
-    "tooltip": true,
-    "tooltip-format": "Espacio libre: {free} / {total} ({percentage_free}%)"
-  },
-  "temperature": {
-    "format": "{temperatureC}°C {icon}",
-    "tooltip": true,
-    "tooltip-format": "Temperatura actual: {temperatureC}°C\nCrítico si > 80°C",
-    "format-icons": [
-      ""
-    ]
-  },
-  /* === Modules Center === */
-  "hyprland/workspaces": {
-    "format": "{icon}",
-    "format-icons": {
-      "default": "",
-      "active": ""
+    "layer": "top",
+    "position": "top",
+    "mod": "dock",
+    "exclusive": true,
+    "passthrough": false,
+    "gtk-layer-shell": true,
+    "height": 36,
+    "margin-right": 5,
+    "margin-left": 5, 
+
+    "modules-left": [
+        "custom/rofi",
+        "clock",
+        "wlr/taskbar",
+    ],
+
+    "modules-center": [
+        "hyprland/workspaces",
+    ],
+
+    "modules-right": [
+        "tray",
+        "battery",
+        "pulseaudio",
+        "pulseaudio#microphone",
+        "backlight",
+        "cpu",
+        "memory",
+        "disk",
+        "temperature",
+        "custom/updates",
+        "network",
+        "hyprland/language",
+        "custom/lock_screen",
+        "custom/power"
+    ],
+
+    "custom/rofi": {
+        "format": "",
+        "on-click": "rofi -show drun",
+        "tooltip": false
     },
-    "persistent-workspaces": {
-      "*": 2
+
+    "custom/power": {
+        "format": "",
+        "on-click": "sysact",
+        "tooltip": false
     },
-    "disable-scroll": true,
-    "all-outputs": true,
-    "show-special": true
-  },
-  /* === Modules Right === */
-  "wlr/taskbar": {
-    "format": "{icon}",
-    "all-outputs": true,
-    "active-first": true,
-    "tooltip-format": "{name}",
-    "on-click": "activate",
-    "on-click-middle": "close",
-    "ignore-list": [
-      "rofi"
-    ]
-  },
-  "idle_inhibitor": {
-    "format": "{icon}",
-    "format-icons": {
-      "activated": "",
-      "deactivated": ""
-    }
-  },
-  "pulseaudio_slider": {
-    "format": "{volume}%",
-    "tooltip": false,
-    "on-click": "pavucontrol"
-  },
-  "pulseaudio": {
-    "format": "{volume}% {icon}",
-    "format-muted": " {format_source}",
-    "format-icons": {
-      "default": [
-        "",
-        ""
-      ]
-    }
-  },
-  "network": {
-    "format": "{ifname}",
-    "format-ethernet": "{ifname} 󰈀",
-    "format-disconnected": " ",
-    "tooltip-format": " {ifname} via {gwaddr}",
-    "tooltip-format-ethernet": " {ifname} {ipaddr}/{cidr}",
-    "tooltip-format-disconnected": "Disconnected",
-    "max-length": 50
-  },
-  "hyprland/language": {
-    "format": "{} ",
-    "on-click": "hyprctl switchxkblayout at-translated-set-2-keyboard next",
-    "format-es": "ESP",
-    "format-en": "ENG"
-  }
-} 
+
+
+    "custom/lock_screen": {
+        "format": "",
+        "on-click": "sh -c '(sleep 0.5s; swaylock -eFfki ~/Pictures/lockscreen.png)' & disown",
+        "tooltip": false
+    },
+
+    "hyprland/workspaces": {
+        "on-click": "activate",
+        "disable-scroll": true,
+        "all-outputs": true,
+        "show-special": true,
+        "persistent-workspaces": {
+            "*": [ 1, 2, 3, 4 ],
+        },
+    },
+
+    "wlr/taskbar": {
+        "format": "{icon}",
+        "icon-size": 12,
+        "all-outputs": true,
+        "tooltip-format": "{name}: {title}",
+        "on-click": "activate",
+        "on-click-middle": "close",
+        "ignore-list": [
+            "rofi"
+         ]
+    },
+
+    "tray": {
+        "icon-size": 12,
+        "spacing": 10
+    },
+
+    "cpu": {
+        "interval": 10,
+        "format": "",
+        "max-length": 10,
+        "format-alt-click": "click-right",
+        "format-alt": " {usage}%",
+    },
+
+    "memory": {
+        "interval": 30,
+        "format": "",
+        "format-alt-click": "click-right",
+        "format-alt": " {}%",
+        "max-length": 10,
+        "tooltip": true,
+        "tooltip-format": "Memory - {used:0.1f}GB used",
+    },
+    
+    "disk": {
+        "interval": 600,
+        "format": "󰋊",
+        "path": "/",
+        "format-alt-click": "click-right",
+        "format-alt": "󰋊 {percentage_used}%",
+        "tooltip": true,
+        "tooltip-format": "HDD - {used} used out of {total} on {path} ({percentage_used}%)",
+        "states": {
+            "warning": 85,
+            "critical": 90,
+        },
+    },
+
+    "temperature": {
+        "thermal-zone": 1,
+        "format": "",
+        "format-alt-click": "click-right",
+        "format-alt": " {temperatureC}°C",
+        "critical-threshold": 70,
+        "format-critical": " {temperatureC}°C",
+    },
+
+    "battery": {
+        "states": {
+            "good": 95,
+            "warning": 30,
+            "critical": 20
+        },
+        "format": "{icon}",
+        "format-charging": " {capacity}%",
+        "format-plugged": " {capacity}%",
+        "format-alt-click": "click-right",
+        "format-alt": "{icon} {capacity}%",
+        "states": {
+            "warning": 20,
+            "critical": 10
+        },
+        "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+    },
+
+    "pulseaudio": {
+        "format": "{icon}",
+        "format-muted": "",
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+        "on-click-right": "pwvucontrol",
+        "on-scroll-up": "wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+",
+        "on-scroll-down": "wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%-",
+        "scroll-step": 5,
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "tooltip": true,
+        "tooltip-format": "{icon} at {volume}%"
+    },
+
+    "pulseaudio#microphone": {
+        "format": "{format_source}",
+        "format-source": "",
+        "format-source-muted": "",
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
+        "on-scroll-up": "wpctl set-volume -l 1 @DEFAULT_AUDIO_SOURCE@ 5%+",
+        "on-scroll-down": "wpctl set-volume -l 1 @DEFAULT_AUDIO_SOURCE@ 5%-",
+        "scroll-step": 5,
+        "tooltip": true,
+        "tooltip-format": " at {volume}%"
+    },
+
+    "backlight": {
+        "device": "intel_backlight",
+        "format": "{icon}",
+        "format-alt-click": "click-right",
+        "format-alt": "{icon} {percent}%",
+        "format-icons": ["󰃞", "󰃟", "󰃠"],
+        "on-scroll-up": "incbrightness",
+        "on-scroll-down": "decbrightness"
+    },
+
+      "network": {
+        "format": "{ifname}",
+        "format-wifi": " ",
+        "format-ethernet": " ",
+        "format-disconnected": " ", //An empty format will hide the module.
+        "tooltip-format": " {ifname} via {gwaddr}",
+        "tooltip-format-wifi": " {essid} ({signalStrength}%)",
+        "tooltip-format-ethernet": " {ifname} {ipaddr}/{cidr}",
+        "tooltip-format-disconnected": "Disconnected",
+        "max-length": 50
+    },
+
+    "clock": {
+        "timezone": "Europe/Warsaw",
+        "format": "{0:%H:%M}",
+        "tooltip": true,
+        "on-click": "setbg",
+        "tooltip-format": "{: %A, %B %e %Y}"
+    },
+
+ } 

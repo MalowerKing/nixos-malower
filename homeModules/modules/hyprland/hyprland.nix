@@ -33,7 +33,9 @@
       ################
 
       # See https://wiki.hyprland.org/Configuring/Monitors/
-      monitor = ",preferred,auto,auto";
+      monitor = ["eDP-1,preferred,auto,auto"
+        "HDMI-A-1,preferred,auto,auto,mirror,eDP-1"]
+                                ;
 
       ###################
       ### MY PROGRAMS ###
@@ -60,6 +62,7 @@
         "nm-applet &"
         "dbus-update-activation-environment --systemd --all"
         "dunst &"
+        "hyprctl setcursor Dracula-cursors 24"
       ];
 
       #############################

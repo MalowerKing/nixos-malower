@@ -2,11 +2,11 @@
   description = "Flake for My system configuration\'s";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
     home-manager = {
-      url = "github:nix-community/home-manager";
+      url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -21,23 +21,25 @@
 
     hyprlock.url = "github:hyprwm/hyprlock";
 
-    stylix = {
-      url = "github:danth/stylix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+                # stylix = {
+                # url = "github:danth/stylix";
+                # inputs.nixpkgs.follows = "nixpkgs";
+                #};
   };
 
   outputs = {
     self,
     nixpkgs,
-    nixpkgs-stable,
+    nixpkgs-unstable,
     home-manager,
     nvf,
     alejandra,
-    stylix,
+                #stylix,
     ...
   } @ inputs: let
     system = "x86_64-linux";
+        pkgs = nixpkgs.legacyPackages.${system};
+        pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
   in {
     packages.${system}.neovim =
       (nvf.lib.neovimConfiguration {
@@ -49,11 +51,7 @@
     # malower - system hostname
     nixosConfigurations.malower = nixpkgs.lib.nixosSystem {
       specialArgs = {
-        pkgs-stable = import nixpkgs-stable {
-          inherit system;
-          config.allowUnfree = true;
-        };
-        inherit inputs system;
+        inherit inputs system pkgs-unstable;
       };
 
       modules = [
@@ -64,12 +62,12 @@
         {
           environment.systemPackages = [alejandra.defaultPackage.${system}];
         }
-        stylix.nixosModules.stylix
+                                        # stylix.nixosModules.stylix
       ];
     };
 
     homeConfigurations.malower = home-manager.lib.homeManagerConfiguration {
-      pkgs = nixpkgs.legacyPackages.${system};
+                                inherit pkgs;
       modules = [
         ./homeModules/home.nix
       ];

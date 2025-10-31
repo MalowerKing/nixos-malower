@@ -21,9 +21,14 @@
     ../../hardwareConfigurations/bluetooth.nix
     ../../hardwareConfigurations/wm-Hyprland.nix
     ../../hardwareConfigurations/fileManager.nix
-    ../../hardwareConfigurations/stylix.nix
+                #../../hardwareConfigurations/stylix.nix
     ../../hardwareConfigurations/greetd.nix
         ../../hardwareConfigurations/powerManagment.nix
+        ../../hardwareConfigurations/fonts.nix
+        ../../hardwareConfigurations/searXNG.nix
+        ../../hardwareConfigurations/virtualisation.nix
+        ../../hardwareConfigurations/eduroam.nix
+        ../../hardwareConfigurations/appimage.nix
   ];
 
   networking.hostName = "malower"; # Define your hostname.
@@ -32,7 +37,7 @@
   users.users.malower = {
     isNormalUser = true;
     description = "Malower";
-    extraGroups = ["networkmanager" "wheel"];
+    extraGroups = ["networkmanager" "wheel" "dialout"];
     packages = with pkgs; [
       #  thunderbird
     ];
@@ -65,9 +70,14 @@
     seahorse
 
     greetd.tuigreet
+        qemu
 
     #  wget
   ];
+
+nixpkgs.config.permittedInsecurePackages = [
+        "libtiff-4.0.3-opentoonz"
+];
 
   system.stateVersion = "24.11"; # Did you read the comment?
 }

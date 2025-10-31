@@ -27,9 +27,13 @@
         anki
         path-of-building
         synfigstudio
+        unityhub
+        monero-gui
+        basicswap
 
     feh
     hyprshot
+        zoom-us
 
     kdePackages.ark
 
@@ -39,9 +43,12 @@
     wl-clipboard
     ripgrep
         acpi
+        pwvucontrol
 
     bluez
     brightnessctl
+
+        python3
   ];
 
   gtk.enable = true;
