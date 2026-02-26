@@ -258,7 +258,8 @@
         "$mainMod, R, exec, $menu"
         "$mainMod, P, pseudo, # dwindle"
         "$mainMod, J, togglesplit, # dwindle"
-        "$mainMod, S, exec, hyprshot -m region"
+        "$mainMod, PRINT, exec, hyprshot -m region -o ~/Obrazy/Zrzuty/"
+        ", PRINT, exec, hyprshot -m window -o ~/Obrazy/Zrzuty/"
         "$mainMod SHIFT, R, exec, hyprctl reload"
 
         # Move focus with mainMod + arrow keys

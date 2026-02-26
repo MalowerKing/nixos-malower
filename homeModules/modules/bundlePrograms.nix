@@ -20,19 +20,21 @@
     vscode
     rar
     gimp
-    simulide_1_2_0
     discord
     vencord
     gearlever
         anki
         path-of-building
-        synfigstudio
         unityhub
         monero-gui
         basicswap
         gutenprint
         inkscape-with-extensions
         ocrmypdf
+        logseq
+
+        nodejs
+        postman
 
     feh
     hyprshot
