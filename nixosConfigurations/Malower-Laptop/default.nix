@@ -27,8 +27,9 @@
         ../../hardwareConfigurations/fonts.nix
         ../../hardwareConfigurations/searXNG.nix
         ../../hardwareConfigurations/virtualisation.nix
-        ../../hardwareConfigurations/eduroam.nix
         ../../hardwareConfigurations/appimage.nix
+        ../../hardwareConfigurations/mullvad-vpn.nix
+        ../../hardwareConfigurations/mySql.nix
   ];
 
   networking.hostName = "malower"; # Define your hostname.

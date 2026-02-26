@@ -11,8 +11,9 @@
 
     clipboard.providers.wl-clipboard.enable = true;
 
+        lsp.enable = true;
+
     languages = {
-      enableLSP = true;
       enableTreesitter = true;
 
       clang.treesitter.enable = true;
@@ -20,6 +21,7 @@
       nix.enable = true;
       clang.enable = true;
       python.enable = true;
+        python.lsp.enable = true;
     };
 
     autocomplete = {

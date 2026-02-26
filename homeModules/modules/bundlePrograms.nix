@@ -30,6 +30,9 @@
         unityhub
         monero-gui
         basicswap
+        gutenprint
+        inkscape-with-extensions
+        ocrmypdf
 
     feh
     hyprshot
@@ -53,4 +56,5 @@
 
   gtk.enable = true;
   qt.enable = true;
+
 }
