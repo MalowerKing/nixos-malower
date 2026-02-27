@@ -23,11 +23,6 @@
       fsType = "ext4";
     };
 
-  fileSystems."/mnt/DYSK_1" =
-    { device = "/dev/disk/by-uuid/8b3a43df-058c-43da-8350-61d6ebd2d65c";
-      fsType = "ext4";
-    };
-
   fileSystems."/boot" =
     { device = "/dev/disk/by-uuid/CED1-B287";
       fsType = "vfat";

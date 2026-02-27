@@ -32,6 +32,7 @@
         inkscape-with-extensions
         ocrmypdf
         logseq
+        gparted
 
         nodejs
         postman
